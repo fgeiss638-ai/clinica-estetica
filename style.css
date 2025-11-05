@@ -664,52 +664,67 @@
 }
 
 @media (max-width: 768px) {
+
+  .caminho-container {
+    margin-top: -60px;
+  }
+
+  /* Linha central à esquerda */
   .linha-central {
-    align-items: flex-start; /* move tudo pra esquerda */
+    display: flex;
+    flex-direction: column;
     position: relative;
   }
 
-  /* Linha lateral à esquerda */
   .linha-central::before {
-    left: 25px;
+    left: 30px; /* linha fixa à esquerda */
     transform: none;
   }
 
-  /* PONTOS seguem a linha à esquerda */
+  /* Pontos alinhados à linha */
   .ponto {
-    left: 25px;
+    left: 30px;
     transform: translateX(-50%);
   }
 
-  /* Ajuste dos pontos conforme altura */
   .p1 { top: 110px; }
-  .p2 { top: 410px; }
-  .p3 { top: 710px; }
+  .p2 { top: 310px; }
+  .p3 { top: 510px; }
 
-  /* Remove justificação alternada — todos para a esquerda */
+  /* Passos ocupam largura total, card à direita da linha */
   .passo-box {
-    justify-content: flex-start !important; /* força alinhamento */
     width: 100%;
+    display: flex;
+    justify-content: flex-start;
     margin: 40px 0;
   }
 
-  /* Card recuado à direita da linha */
+  /* Conteúdo do passo em coluna: ícone centralizado, texto abaixo */
   .passo-conteudo {
-    width: calc(100% - 70px);
-    margin-left: 60px;
+    display: flex;
+    flex-direction: column; /* ícone acima do texto */
+    align-items: center; /* ícone centralizado horizontalmente */
+    text-align: left; /* texto alinhado à esquerda */
+    margin-left: 60px; /* distância da linha */
+    gap: 10px;
+    width: calc(100% - 60px);
   }
 
-  /* Ícones menores e centralizados */
+  /* Ícone centralizado no topo */
   .icone {
     width: 60px;
     height: 60px;
-    min-width: 60px;
-    min-height: 60px;
-    aspect-ratio: 1 / 1;
     font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0;
   }
 
- 
+  /* Texto ocupa largura total do passo-conteudo */
+  .texto {
+    width: 100%;
+  }
 }
 
 
@@ -828,6 +843,10 @@
 
 /* RESPONSIVO */
 @media (max-width: 992px) {
+
+  #servicos {
+  margin-top: -80px;
+}
   .servico-card .card-img-top {
     height: 200px;
   }
@@ -1002,44 +1021,51 @@
   right: 15px;
 }
 
-/* ====== RESPONSIVO ====== */
-@media (max-width: 992px) {
+@media (max-width: 768px) {
   .carousel-content {
-    flex-direction: column;
-    gap: 25px;
+    flex-direction: column-reverse; /* agora a imagem vai para cima */
+    gap: 20px;
     text-align: center;
   }
 
   .carousel-text,
   .carousel-imagem {
-    width: 90%;
+    width: 100%;
+    text-align: center;
+
   }
 
+
   .carousel-text {
-    padding: 25px;
+    padding: 20px 10px;
   }
 
   .carousel-text h3 {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
 
   .carousel-text p {
     font-size: 1rem;
   }
 
-  .carousel-imagem {
-    height: 260px;
-    border-radius: 25px;
+   .carousel-imagem {
+    width: 100%;
+    height: auto; /* altura automática */
+    border-top-left-radius: 60px; /* apenas o canto superior */
+    border-top-right-radius: 0; /* mantém só o canto esquerdo */
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    overflow: hidden;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
   }
 
   .carousel-prev,
   .carousel-next {
-    bottom: 10px;
     top: auto;
+    bottom: 280px;
     transform: none;
   }
 }
-
 
 
 #depoimentos {
